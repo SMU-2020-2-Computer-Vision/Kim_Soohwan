@@ -9,21 +9,21 @@ cwd = os.path.dirname(os.path.abspath(__file__))
 os.chdir(cwd)
 
 # Create a video capture object
-cap = cv2.VideoCapture(0)
+capture = cv2.VideoCapture(0)
 
 # Define the codec 
 fourcc = cv2.VideoWriter_fourcc(*'XVID')
 
 # Create a video writer object
-out = cv2.VideoWriter('output.avi', fourcc, 20.0, (640,480))
+writer = cv2.VideoWriter('output.avi', fourcc, 20.0, (640,480))
 
-while(cap.isOpened()):
+while(capture.isOpened()):
     # Read a video frame
-    ret, frame = cap.read()
+    ret, frame = capture.read()
     
     if ret==True:
         # Write the current frame
-        out.write(frame)
+        writer.write(frame)
 
         # Display the current frame
         cv2.imshow('frame',frame)
@@ -33,6 +33,6 @@ while(cap.isOpened()):
         break
 
 # Release everything if job is finished
-cap.release()
-out.release()
+capture.release()
+writer.release()
 cv2.destroyAllWindows()
