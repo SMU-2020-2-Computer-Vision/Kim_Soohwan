@@ -25,14 +25,13 @@ img_gray = np.zeros((rows, cols), np.uint8)
 # Iterate over the whole image
 for row in range(rows):
     for col in range(cols):
-
         # Read the pixel from the color image
-        b = img_color.item(row, col, 0)
-        g = img_color.item(row, col, 1)
-        r = img_color.item(row, col, 2)
+        B = img_color.item(row, col, 0)
+        G = img_color.item(row, col, 1)
+        R = img_color.item(row, col, 2)
 
         # Convert it to gray
-        gray = int(0.299*r + 0.587*g + 0.114*b)
+        gray = int(0.299*R + 0.587*G + 0.114*B)
 
         # Write the pixel to the gray image
         img_gray.itemset(row, col, gray)
@@ -43,11 +42,13 @@ img_result = cv2.cvtColor(img_gray, cv2.COLOR_GRAY2BGR)
 # Remove the ball area
 for row in range(286, 332):
     for col in range(338, 390):
-
         # Write the pixel in the result image
-        img_result.itemset(row, col, 0, 0) # b
-        img_result.itemset(row, col, 1, 255) # g
-        img_result.itemset(row, col, 2, 0)  # r
+        img_result.itemset(row, col, 0,   0) # B
+        img_result.itemset(row, col, 1, 255) # G
+        img_result.itemset(row, col, 2,   0) # R
+# img_result[286:331, 338:389, 0] = 0
+# img_result[286:331, 338:389, 1] = 255
+# img_result[286:331, 338:389, 2] = 0
 
 # Display the image
 img_display = cv2.hconcat([img_color, img_result])
