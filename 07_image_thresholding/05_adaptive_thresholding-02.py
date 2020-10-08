@@ -17,7 +17,7 @@ ret, img1 = cv2.threshold(img, 127, 255, cv2.THRESH_BINARY)
 img2 = cv2.adaptiveThreshold(img, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 21, 5)
 img3 = cv2.adaptiveThreshold(img, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 21, 5)
 
-# Draw results
+# Display results
 titles = ['Original Image', 'Global Thresholding (v = 127)', 'Adaptive Mean Thresholding', 'Adaptive Gaussian Thresholding']
 images = [img, img1, img2, img3]
 

@@ -23,7 +23,7 @@ ret, img3 = cv2.threshold(img, thld, 0,     cv2.THRESH_TRUNC)
 ret, img4 = cv2.threshold(img, thld, 0,     cv2.THRESH_TOZERO)
 ret, img5 = cv2.threshold(img, thld, 0,     cv2.THRESH_TOZERO_INV)
 
-# Draw results
+# Display results
 titles = ['Original Image','BINARY','BINARY_INV','TRUNC','TOZERO','TOZERO_INV']
 images = [img, img1, img2, img3, img4, img5]
 

@@ -46,7 +46,7 @@ is_gray = [False, True, True,
 for i in range(6):
     plt.subplot(2, 3, i+1)
     if is_gray[i]: plt.imshow(images[i], 'gray')
-    else:          plt.imshow(images[i])
+    else:          plt.imshow(cv2.cvtColor(images[i], cv2.COLOR_BGR2RGB))
     plt.title(titles[i])
     plt.xticks([]),plt.yticks([])
 
